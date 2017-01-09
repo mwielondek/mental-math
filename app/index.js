@@ -1,5 +1,6 @@
 var app = document.getElementById('app');
 
+// TODO change to ES6 import statements?
 var React = require('react');
 var ReactDOM = require('react-dom');
 
@@ -16,14 +17,17 @@ class Main extends React.Component {
   }
 
   solverHandler(event) {
+    // TODO write an incrementByOne reducer instead which takes keys to increment
     this.setState({
       score: this.state.score + 1,
+      // TODO change to some kind of random fn
       currentEquation: (this.state.currentEquation + 1) % this.props.equations.length
     });
   }
 
   render() {
-    // TODO add timer
+    // TODO add timer, add best score, add equations table (eg simple textarea)
+    // add landing view and solving view, add styling, ...
     const eqs = this.props.equations;
     return (
       <div>
