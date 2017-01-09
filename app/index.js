@@ -36,6 +36,8 @@ class Main extends React.Component {
 Main.defaultProps = {
   equations: [
     "8+1",
+    "8*2",
+    "8/2",
     "3+4"
   ]
 };
@@ -64,8 +66,9 @@ const Solver = ({equation, scoreHandler}) => {
 };
 
 const parseEquation = (equation) => {
-  // TODO
-  return 123;
+  // Not super safe, so we should make sure the input is sanitized elsewhere
+  // prior to calling eval.
+  return eval(equation);
 }
 
 ReactDOM.render(
