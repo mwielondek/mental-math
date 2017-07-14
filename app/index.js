@@ -18,11 +18,11 @@ class Main extends React.Component {
 
   solverHandler(event) {
     // TODO write an incrementByOne reducer instead which takes keys to increment
-    this.setState({
-      score: this.state.score + 1,
+    this.setState((prevState, props) => ({
+      score: prevState.score + 1,
       // TODO change to some kind of random fn
-      currentEquation: (this.state.currentEquation + 1) % this.props.equations.length
-    });
+      currentEquation: (prevState.currentEquation + 1) % props.equations.length
+    }));
   }
 
   render() {
