@@ -20,7 +20,7 @@ class Main extends React.Component {
     // TODO write an incrementByOne reducer instead which takes keys to increment
     this.setState((prevState, props) => ({
       score: prevState.score + 1,
-      // TODO change to some kind of random fn
+      // TODO change to some kind of random fn? Math.floor(Math.random() * arr.length)
       currentEquation: (prevState.currentEquation + 1) % props.equations.length
     }));
   }
