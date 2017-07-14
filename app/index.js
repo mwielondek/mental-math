@@ -9,11 +9,19 @@ class Main extends React.Component {
     super(props);
     this.state = {
       score: 0,
-      currentEquation: 0
+      currentEquation: 0,
+      equations: [
+        "8+1",
+        "8*2",
+        "8/2",
+        "3+4"
+      ]
     }
 
     // necessary to access this.state when called from a different context
+    // TODO check out the new initializer syntax for avoiding having to do this
     this.solverHandler = this.solverHandler.bind(this);
+    this.tableChange = this.tableChange.bind(this);
   }
 
   solverHandler(event) {
@@ -21,29 +29,29 @@ class Main extends React.Component {
     this.setState((prevState, props) => ({
       score: prevState.score + 1,
       // TODO change to some kind of random fn? Math.floor(Math.random() * arr.length)
-      currentEquation: (prevState.currentEquation + 1) % props.equations.length
+      currentEquation: (prevState.currentEquation + 1) % prevState.equations.length
     }));
   }
 
+  tableChange(equationList) {
+    this.setState({
+      equations: equationList
+    });
+  }
+
   render() {
-    // TODO add timer, add best score, add equations table (eg simple textarea)
-    // add landing view and solving view, add styling, ...
-    const eqs = this.props.equations;
+    // TODO add timer, add best score add landing view and solving view, add styling, ...
+    const eqs = this.state.equations;
     return (
       <div>
-        <Score score={this.state.score} />
-        <Solver equation={eqs[this.state.currentEquation]} correctAnswerHandler={this.solverHandler} />
+        <div><EquationTable equations={this.state.equations} updateEquations={this.tableChange} /></div>
+        <div>
+          <Score score={this.state.score} />
+          <Solver equation={eqs[this.state.currentEquation]} correctAnswerHandler={this.solverHandler} />
+        </div>
       </div>
     );
   }
-};
-Main.defaultProps = {
-  equations: [
-    "8+1",
-    "8*2",
-    "8/2",
-    "3+4"
-  ]
 };
 
 const Score = ({score}) => {
@@ -74,6 +82,14 @@ const parseEquation = (equation) => {
   // prior to calling eval.
   return eval(equation);
 }
+
+const EquationTable = ({equations, updateEquations}) => {
+  const handleChange = (event) => {
+      updateEquations(event.target.value.split('\n'));
+  };
+
+  return <textarea value={equations.join('\n')} onChange={handleChange} rows="12"></textarea>;
+};
 
 ReactDOM.render(
   <Main />,
