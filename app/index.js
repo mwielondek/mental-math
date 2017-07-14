@@ -32,7 +32,7 @@ class Main extends React.Component {
     return (
       <div>
         <Score score={this.state.score} />
-        <Solver equation={eqs[this.state.currentEquation]} scoreHandler={this.solverHandler} />
+        <Solver equation={eqs[this.state.currentEquation]} correctAnswerHandler={this.solverHandler} />
       </div>
     );
   }
@@ -50,13 +50,13 @@ const Score = ({score}) => {
   return <div><p>Your score: {score}</p></div>;
 };
 
-const Solver = ({equation, scoreHandler}) => {
+const Solver = ({equation, correctAnswerHandler}) => {
   const correctAnswer = parseEquation(equation);
 
   const changeHandler = (event) => {
     if (event.target.value == correctAnswer) {
-      scoreHandler();  // increase score and get next equation
-      event.persist(); // necessary to avoid the event being released
+      correctAnswerHandler();  // increase score and get next equation
+      event.persist(); // necessary to avoid the event being released due to pooling
       setTimeout(() => {event.target.value = ""}, 220);
     }
   };
