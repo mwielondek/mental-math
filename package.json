@@ -1,5 +1,5 @@
 {
-  "name": "mental-reaction",
+  "name": "mental-math",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/miloszw/mental-reaction.git"
+    "url": "git+https://github.com/miloszw/mental-math.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/miloszw/mental-reaction/issues"
+    "url": "https://github.com/miloszw/mental-math/issues"
   },
-  "homepage": "https://github.com/miloszw/mental-reaction#readme",
+  "homepage": "https://github.com/miloszw/mental-math#readme",
   "dependencies": {
     "react": "^15.4.2",
     "react-dom": "^15.4.2"

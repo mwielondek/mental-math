@@ -1,1 +1,1 @@
-# mental-reaction
+# mental-math
