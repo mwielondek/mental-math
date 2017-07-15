@@ -1,10 +1,8 @@
-var app = document.getElementById('app');
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-// TODO change to ES6 import statements?
-var React = require('react');
-var ReactDOM = require('react-dom');
-
-class Main extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -81,17 +79,14 @@ const parseEquation = (equation) => {
   // Not super safe, so we should make sure the input is sanitized elsewhere
   // prior to calling eval.
   return eval(equation);
-}
+};
 
 const EquationTable = ({equations, updateEquations}) => {
   const handleChange = (event) => {
       updateEquations(event.target.value.split('\n'));
-  };
+  }
 
   return <textarea value={equations.join('\n')} onChange={handleChange} rows="12"></textarea>;
 };
 
-ReactDOM.render(
-  <Main />,
-  app
-);
+export default App;

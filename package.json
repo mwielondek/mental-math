@@ -1,32 +1,16 @@
 {
   "name": "mental-math",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "production": "webpack -p",
-    "start": "webpack-dev-server"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/miloszw/mental-math.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/miloszw/mental-math/issues"
-  },
-  "homepage": "https://github.com/miloszw/mental-math#readme",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.10"
   },
-  "devDependencies": {
-    "babel-core": "^6.21.0",
-    "babel-loader": "^6.2.10",
-    "babel-preset-react": "^6.16.0",
-    "html-webpack-plugin": "^2.26.0",
-    "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
